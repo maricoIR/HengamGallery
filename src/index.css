@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "IRANSansXFaNum";
+  font-style: light;
+  font-weight: 300;
+  font-display: fallback;
+  src: url("/src/assets/fonts/IRANSansXFaNum-light.woff2") format("woff2"),
+    url("/src/assets/fonts/IRANSansXFaNum-light.woff") format("woff"),
+    url("/src/assets/fonts/IRANSansXFaNum-light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IRANSansXFaNum";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("/src/assets/fonts/IRANSansXFaNum-regular.woff2") format("woff2"),
+    url("/src/assets/fonts/IRANSansXFaNum-regular.woff") format("woff"),
+    url("/src/assets/fonts/IRANSansXFaNum-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IRANSansXFaNum";
+  font-style: medium;
+  font-weight: 500;
+  font-display: fallback;
+  src: url("/src/assets/fonts/IRANSansXFaNum-medium.woff2") format("woff2"),
+    url("/src/assets/fonts/IRANSansXFaNum-medium.woff") format("woff"),
+    url("/src/assets/fonts/IRANSansXFaNum-medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IRANSansXFaNum";
+  font-style: bold;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("/src/assets/fonts/IRANSansXFaNum-bold.woff2") format("woff2"),
+    url("/src/assets/fonts/IRANSansXFaNum-bold.woff") format("woff"),
+    url("/src/assets/fonts/IRANSansXFaNum-bold.ttf") format("truetype");
+}
+
+:root {
+  direction: rtl;
+}
+
+html,
+body {
+  direction: rtl;
+  font-family: "IRANSansXFaNum", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom right, #0f172a, #1e3a8a, #0f172a);
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.gold-glow {
+  text-shadow: 0 1px 8px rgba(255, 215, 64, 0.12);
+}
+
+.gold-text-glow {
+  text-shadow: 0 2px 12px rgba(255, 215, 64, 0.2);
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+/* Remove outline from all buttons on focus/active */
+button:focus,
+button:active,
+a:focus,
+a:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Specific focus ring removal for Tailwind default rings if needed, 
+   though the above should cover browser defaults */
+*:focus {
+  outline: none !important;
+  --tw-ring-color: transparent !important;
+}
