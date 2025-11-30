@@ -157,7 +157,7 @@ const PersonalInfo: React.FC = () => {
     try {
       const success = await updateProfile({
         ...formData,
-        profileImage: profileImage,
+        profileImage: profileImage || undefined,
       });
       if (success) {
         setIsEditing(false);

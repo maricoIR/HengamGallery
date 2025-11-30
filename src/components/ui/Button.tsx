@@ -11,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   size?: "sm" | "md" | "lg";
   className?: string;
+  loading?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   size = "md",
   className = "",
   disabled,
+  loading = false,
   ...props
 }) => {
   const baseClasses =
@@ -63,8 +65,15 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <button className={classes} disabled={disabled} {...props}>
-      {renderContent()}
+    <button className={classes} disabled={disabled || loading} {...props}>
+      {loading ? (
+        <div className="flex items-center justify-center">
+          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current ml-2"></div>
+          {children}
+        </div>
+      ) : (
+        renderContent()
+      )}
     </button>
   );
 };

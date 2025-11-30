@@ -28,15 +28,6 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFiltersChange, catego
 
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const materialOptions = [
-    { value: "", label: "همه مواد" },
-    { value: "طلای ۱۸ عیار", label: "طلای ۱۸ عیار" },
-    { value: "طلای ۱۴ عیار", label: "طلای ۱۴ عیار" },
-    { value: "نقره", label: "نقره" },
-    { value: "الماس", label: "الماس" },
-    { value: "مروارید", label: "مروارید" },
-  ];
-
   const sortOptions = [
     { value: "", label: "پیش‌فرض" },
     { value: "price-asc", label: "قیمت: کم به زیاد" },
@@ -100,25 +91,27 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({ onFiltersChange, catego
           onChange={(value) => handleFilterChange("category", value)}
         />
 
-        <Select
+        {/* <Select
           label="جنس"
           options={materialOptions}
           value={filters.material}
           onChange={(value) => handleFilterChange("material", value)}
-        />
+        /> */}
 
         <div className="grid grid-cols-2 gap-4">
           <Input
             label="حداقل قیمت"
             type="number"
-            placeholder="۰"
+            disabled
+            placeholder="غیر فعال"
             value={filters.minPrice}
             onChange={(e) => handleFilterChange("minPrice", e.target.value)}
           />
           <Input
             label="حداکثر قیمت"
             type="number"
-            placeholder="نامحدود"
+            disabled
+            placeholder="غیر فعال"
             value={filters.maxPrice}
             onChange={(e) => handleFilterChange("maxPrice", e.target.value)}
           />

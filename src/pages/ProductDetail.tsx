@@ -16,7 +16,7 @@ const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedVariations, setSelectedVariations] = useState<Record<string, string>>({});
-  const [quantity, setQuantity] = useState(1);
+  const [quantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const { addItem } = useCart();
@@ -63,11 +63,6 @@ const ProductDetail: React.FC = () => {
     }
   };
 
-  const handleQuantityChange = (newQuantity: number) => {
-    if (newQuantity >= 1 && newQuantity <= (product?.stock || 0)) {
-      setQuantity(newQuantity);
-    }
-  };
 
   if (loading) {
     return (
@@ -97,14 +92,13 @@ const ProductDetail: React.FC = () => {
     ? calculateDiscount(product.originalPrice, product.price)
     : 0;
 
-  const getBreadcrumbItems = () => {
-    const items = [
+  const getBreadcrumbItems = (): Array<{ label: string; href?: string; isActive?: boolean }> => {
+    const items: Array<{ label: string; href?: string; isActive?: boolean }> = [
       { label: "خانه", href: "/" },
       { label: "محصولات", href: "/products" },
     ];
 
     if (product) {
-      // Get the first category from product tags
       const firstTag = product.tags[0];
       if (firstTag) {
         items.push({ label: firstTag, href: `/products?category=${firstTag.toLowerCase()}` });

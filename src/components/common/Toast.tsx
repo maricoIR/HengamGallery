@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 interface ToastProps {
-  message: string;
+  title: string;
+  message?: string;
   type?: "success" | "error" | "warning" | "info";
   duration?: number;
   onClose?: () => void;
 }
 
-const Toast: React.FC<ToastProps> = ({ message, type = "info", duration = 3000, onClose }) => {
+const Toast: React.FC<ToastProps> = ({ title, message, type = "info", duration = 3000, onClose }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -39,7 +40,10 @@ const Toast: React.FC<ToastProps> = ({ message, type = "info", duration = 3000, 
         isVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       } ${typeClasses[type]}`}>
       <i className={`${iconClasses[type]} text-lg`} />
-      <span className="font-medium">{message}</span>
+      <div className="flex flex-col">
+        <span className="font-medium">{title}</span>
+        {message && <span className="text-sm opacity-90">{message}</span>}
+      </div>
       <button
         onClick={() => {
           setIsVisible(false);

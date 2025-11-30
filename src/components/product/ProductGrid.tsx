@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../../utils/mockData";
+import type { Product } from "../../utils/mockData";
 import ProductCard from "./ProductCard";
 
 interface ProductGridProps {

@@ -1,5 +1,5 @@
 import React from "react";
-import { CartItem as CartItemType } from "../../utils/mockData";
+import type { CartItem as CartItemType } from "../../utils/mockData";
 import { formatPrice } from "../../utils/formatPrice";
 import { useCart } from "../../hooks/useCart";
 import { Icon } from "../ui/Icon";

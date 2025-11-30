@@ -1,11 +1,11 @@
 import React from "react";
-import { CartItem as CartItemType } from "../../utils/mockData";
+import type { CartItem } from "../../utils/mockData";
 import { formatPrice } from "../../utils/formatPrice";
 import Button from "../ui/Button";
 import { Icon } from "../ui/Icon";
 
 interface CartSummaryProps {
-  items: CartItemType[];
+  items: CartItem[];
   totalPrice: number;
   onCheckout: () => void;
   onContinueShopping: () => void;
@@ -70,7 +70,7 @@ const CartSummary: React.FC<CartSummaryProps> = ({
           size="lg"
           icon={<Icon name="credit-card" size={20} />}
           iconPosition="right">
-          ادامه خرید
+          تکمیل سفارش
         </Button>
 
         <Button

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Product } from "../../utils/mockData";
+import type { Product } from "../../utils/mockData";
 import { Icon } from "../ui/Icon";
 
 interface SearchAutocompleteProps {

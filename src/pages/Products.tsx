@@ -160,9 +160,9 @@ const Products: React.FC = () => {
     return "محصولات";
   };
 
-  const getBreadcrumbItems = () => {
+  const getBreadcrumbItems = (): Array<{ label: string; href?: string; isActive?: boolean }> => {
     const categoryParam = searchParams.get("category");
-    const items = [{ label: "خانه", href: "/" }];
+    const items: Array<{ label: string; href?: string; isActive?: boolean }> = [{ label: "خانه", href: "/" }];
 
     if (categoryParam) {
       const category = mockCategories.find((cat) => cat.slug === categoryParam);

@@ -316,19 +316,19 @@ export const mockApi = {
     });
   },
 
-  addToCart: (productId: number, quantity: number = 1): Promise<boolean> => {
+  addToCart: (_productId: number, _quantity: number = 1): Promise<boolean> => {
     return new Promise((resolve) => {
       setTimeout(() => resolve(true), 200);
     });
   },
 
-  removeFromCart: (productId: number): Promise<boolean> => {
+  removeFromCart: (_productId: number): Promise<boolean> => {
     return new Promise((resolve) => {
       setTimeout(() => resolve(true), 200);
     });
   },
 
-  updateCartQuantity: (productId: number, quantity: number): Promise<boolean> => {
+  updateCartQuantity: (_productId: number, _quantity: number): Promise<boolean> => {
     return new Promise((resolve) => {
       setTimeout(() => resolve(true), 200);
     });

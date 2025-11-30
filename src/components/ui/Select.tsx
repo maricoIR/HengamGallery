@@ -5,11 +5,12 @@ interface SelectOption {
   label: string;
 }
 
-interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "onChange"> {
+interface SelectProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> {
   options: SelectOption[];
   label?: string;
   placeholder?: string;
   className?: string;
+  value?: string | number;
   onChange?: (value: string | number) => void;
 }
 
@@ -23,11 +24,15 @@ const Select: React.FC<SelectProps> = ({
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string | number | undefined>(value);
+  const [selectedValue, setSelectedValue] = useState<string | number | undefined>(
+    typeof value === "string" || typeof value === "number" ? value : undefined
+  );
   const selectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setSelectedValue(value);
+    if (typeof value === "string" || typeof value === "number") {
+      setSelectedValue(value);
+    }
   }, [value]);
 
   useEffect(() => {
@@ -47,7 +52,7 @@ const Select: React.FC<SelectProps> = ({
     onChange?.(optionValue);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       setIsOpen(!isOpen);

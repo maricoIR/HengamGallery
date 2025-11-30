@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../../hooks/useCart";
 import { useAuth } from "../../hooks/useAuth";
-import { useFavorites } from "../../context/FavoritesContext";
 import { mockCategories, mockApi, type Product } from "../../utils/mockData";
 import SearchAutocomplete from "../common/SearchAutocomplete";
 import { Icon } from "../ui/Icon";
@@ -14,7 +13,6 @@ const Navbar: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const { state: cartState } = useCart();
   const { isAuthenticated } = useAuth();
-  const { getFavoritesCount } = useFavorites();
 
   const navigationItems = [
     { name: "پیگیری سفارش", href: "/track-order" },

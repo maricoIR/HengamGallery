@@ -23,7 +23,7 @@ export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({ children 
     items: [],
     loading: false,
   });
-  const { showSuccess, showError } = useToast();
+  const { showSuccess } = useToast();
 
   useEffect(() => {
     const savedFavorites = localStorage.getItem("hengam-favorites");
